@@ -1,0 +1,9 @@
+[package]
+name = "wrap_cmp"
+version = "0.1.0"
+authors = ["pi"]
+edition = "2018"
+
+[dependencies]
+num-traits = "0.2.8"
+
