@@ -83,11 +83,24 @@ mod tests {
     }
 
     #[test]
-    fn non_wrapped_cmp_works() {
+    fn wrapped_cmp_works() {
         let left = WrappedNum::new(200u8);
         let mut right = WrappedNum::new(200u8);
         right.wrapping_add(100u8);
         assert!(left.get() > right.get());
+        assert!(left < right);
+    }
+
+    #[test]
+    // FIXTHIS
+    fn wrapped_negative_cmp_works() {
+        let left = WrappedNum::new(-100i8);
+        let mut right = WrappedNum::new(-100i8);
+
+        right.wrapping_add(-128i8);
+        right.wrapping_add(-120i8);
+        // right.wrapping_add(-8i8);
+        assert!(left.get() < right.get());
         assert!(left < right);
     }
 }
